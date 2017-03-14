@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @winery.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @winery.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @winery.description %>
+</p>
+
+<!-- <p>
+  <ul>
+    <% @winery.wines.each do |wine| %>
+        <li>
+            <%= wine.name %> <%= wine.vintage.year.to_s %>
+        </li>
+    <% end %>
+  </ul>
+</p> -->
+
+<p>
+  <ul>
+    <%= render partial: "wine", collection: @winery.wines %>
+  </ul>
+</p>
+
+
+<%= link_to 'New Wine', new_wine_path %> |
+<%= link_to 'Edit', edit_winery_path(@winery) %> |
+<%= link_to 'Back', wineries_path %>
